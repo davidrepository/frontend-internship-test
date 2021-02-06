@@ -19,7 +19,9 @@
 	</head>
 	<body>
 		<section class="main">
-			<button id="show-popup-form" class="btn btn-main">Click me!</button>
+			<button id="show-popup-login" class="btn btn-main">
+				Click me!
+			</button>
 			<!-- Display success message below -->
 		</section>
 		<div id="popup-login" class="popup">
@@ -30,24 +32,45 @@
 			<div class="heading">Login</div>
 			<form>
 				<div class="inputs-group">
-					<input id="input-email" type="text" placeholder="E-mail" />
-					<input
-						id="input-password"
-						type="password"
-						placeholder="Password"
-						autocomplete="off"
-					/>
-					<label for="checkbox1" class="custom-label-checkbox">
-						<input id="checkbox1" type="checkbox" />
+					<div class="form-control">
+						<input
+							id="input-email"
+							name="email"
+							type="text"
+							placeholder="E-mail"
+						/>
+						<div class="error-info">Error message</div>
+					</div>
+					<div class="form-control">
+						<input
+							id="input-password"
+							name="password"
+							type="password"
+							placeholder="Password"
+							autocomplete="off"
+						/>
+						<div class="error-info">Error message</div>
+					</div>
+					<label
+						for="input-checkbox1"
+						class="form-control custom-label-checkbox"
+					>
+						<input
+							id="input-checkbox1"
+							name="agreement"
+							type="checkbox"
+						/>
 						<div class="custom-checkbox">
 							<i class="fas fa-check"></i>
 						</div>
-						<div class="text-agreement">
-							I agree to terms & conditions
+						<div class="text">
+							<div class="text-agreement">
+								I agree to terms & conditions
+							</div>
+							<div class="error-info">Error message</div>
 						</div>
 					</label>
 				</div>
-
 				<button class="button-submit" type="submit">Submit</button>
 			</form>
 		</div>
