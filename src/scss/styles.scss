@@ -18,6 +18,13 @@
 	padding: 40px;
 	gap: 24px;
 
+	&.loading,
+	&.loading * {
+		user-select: none;
+		cursor: progress !important;
+		pointer-events: none;
+	}
+
 	&.show {
 		visibility: visible;
 		pointer-events: all;
@@ -31,7 +38,7 @@
 	}
 	// Btn close
 	& .btn-close {
-		$sizeButton: 24px;
+		$sizeButton: 26px;
 		$sizeTimes: 18px;
 		position: absolute;
 		top: ($sizeButton - $sizeTimes) / -2;

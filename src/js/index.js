@@ -76,7 +76,7 @@ const checkPassword = () => {
 const checkCheckbox = () => {
 	const checkboxChecked = inputCheckbox.checked;
 	return checkboxChecked
-		   ? setSuccess(inputCheckbox)
+		? setSuccess(inputCheckbox)
 		: setError(inputCheckbox, errors.agreement.DEFAULT);
 };
 
@@ -88,6 +88,16 @@ const checkInputs = () => {
 
 	const credentialsAreValid =
 		checkEmailBool && checkPasswordBool && checkCheckboxBool;
+
+	if (credentialsAreValid) {
+		popupLogin.classList.add('loading');
+
+		setTimeout(() => {
+			handleClosePopupLogin();
+			popupLogin.classList.remove('loading');
+			showPopupLogin.innerHTML = 'Thank you!';
+		}, 3000);
+	}
 };
 
 // --- Actions ---
