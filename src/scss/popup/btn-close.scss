@@ -1,0 +1,23 @@
+& .btn-close {
+	$sizeButton: 26px;
+	$sizeTimes: 18px;
+	position: absolute;
+	top: ($sizeButton - $sizeTimes) / -2;
+	right: ($sizeButton - $sizeTimes) / -2;
+	width: $sizeButton;
+	height: $sizeButton;
+	border-radius: 50%;
+	background-color: $color-black;
+	transition: 0.2s background-color;
+
+	&:hover {
+		background-color: $color-grey;
+	}
+
+	& .fa-times {
+		width: $sizeTimes;
+		height: $sizeTimes;
+		color: $color-white;
+		font-size: $sizeTimes;
+	}
+}
