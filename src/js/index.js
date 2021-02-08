@@ -49,19 +49,26 @@ const isEmpty = value => {
 	return value === '';
 };
 
+const checkTruethness = (isTrue, element, errorMsg) =>
+	isTrue ? setSuccess(element) : setError(element, errorMsg);
+
 // Validations: e-mail (required, regex); password (required); checkbox (required)
 const checkEmail = () => {
 	const emailValue = inputEmail.value.trim();
 
 	if (!emailValue && isEmpty(emailValue))
-		return isEmpty(emailValue)
-			? setError(inputEmail, errors.email.EMPTY)
-			: setSuccess(inputEmail);
+		return checkTruethness(
+			!isEmpty(emailValue),
+			inputEmail,
+			errors.email.EMPTY,
+		);
 
 	if (!isEmpty(emailValue) && !isEmailValid(emailValue))
-		return !isEmailValid(emailValue)
-			? setError(inputEmail, errors.email.VALID)
-			: setSuccess(inputEmail);
+		return checkTruethness(
+			isEmailValid(emailValue),
+			inputEmail,
+			errors.email.VALID,
+		);
 
 	return setSuccess(inputEmail);
 };
