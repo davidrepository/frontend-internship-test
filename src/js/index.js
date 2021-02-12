@@ -73,19 +73,19 @@ const checkEmail = () => {
 	return setSuccess(inputEmail);
 };
 
-const checkPassword = () => {
-	const passwordValue = inputPassword.value.trim();
-	return isEmpty(passwordValue)
-		? setError(inputPassword, errors.password.EMPTY)
-		: setSuccess(inputPassword);
-};
+const checkPassword = () =>
+	checkTruethness(
+		!isEmpty(inputPassword.value.trim()),
+		inputPassword,
+		errors.password.EMPTY,
+	);
 
-const checkCheckbox = () => {
-	const checkboxChecked = inputCheckbox.checked;
-	return checkboxChecked
-		? setSuccess(inputCheckbox)
-		: setError(inputCheckbox, errors.agreement.DEFAULT);
-};
+const checkCheckbox = () =>
+	checkTruethness(
+		inputCheckbox.checked,
+		inputCheckbox,
+		errors.agreement.DEFAULT,
+	);
 
 // Functions container
 const checkInputs = () => {
